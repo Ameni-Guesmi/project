@@ -1,0 +1,56 @@
+<!--{% load static %}
+
+{% block content %}
+{% endblock content %}
+<html>
+<head>
+     <link rel="stylesheet" href="{% static 'css/categoris.css' %}">
+</head>
+{% load mptt_tags %}
+
+<body> 
+  <nav class="vertical">
+    <ul>
+        {% recursetree genres %}
+          <li class="dropdown side-dropdown">
+            <a href="/categorie/{{ node.id }}/{{ node.slug }}" class="dropdown-toggle" {% if not node.is_leaf_node %} data-toggle="dropdown" aria-expanded="true" {% endif %}>  {{ node.name }} <i class="fa fa-angle-right"></i> </a>
+            <div class="custom-menu">
+              <div class="row">
+                <div class="col-md-4">
+                  {% if not node.is_leaf_node %}
+                    <ul class="list-links">
+                      <hr>
+                      {% for child in children %}
+                        <li><a href="#">{{ child.name }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                  <hr class="hidden-md hidden-lg">
+                </div>
+              </div>
+            </div> 
+          </li>
+        {% endrecursetree %}
+      </ul>
+  </nav>
+</body>
+</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ChatGPT</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+      
+        <div class="container">
+            <h3 style="text-align: center;">ChatGPT</h3>
+            <form  action="{% url 'answer' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="question" placeholder="Ask any question">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+            </form>
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>
+

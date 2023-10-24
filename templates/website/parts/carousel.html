@@ -1,0 +1,61 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Slider</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
+   
+
+</head>
+
+<body>
+   
+    <div id="slider" class="slider-container">
+        <img src="{% static 'image/camera.jpg' %}" alt="" id="slide" class="image-size">
+        <div class="slider-content">
+           <div class="carousel-caption">
+              <h3 id="slide-title">Sécurité à domicile</h3>
+              <p id="slide-description">caméra de surveillance, caméra de bébé...</p>
+           </div>
+        </div>
+        <div id="precedent" onclick="ChangeSlide(-1)">&lt;</div>
+        <div id="suivant" onclick="ChangeSlide(1)">&gt;</div>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+    const slideImages = [ "camera.jpg", "samsung.jpg", "cuisine.jpg","phone.jpg", "watch.jpg"];
+    const slideTitles = [ "Sécurité à domicile", "Sport", "Cuisine","Téléphones", "Montres"];
+    const slideDescriptions = [
+      
+      "caméra de surveillance, caméra de bébé...",
+      "Ecouteur, Casque, Chronometre...",
+      "Équipement de cuisine et ustensiles: Mixeurs,Bouilloires distributeurs d'eau ...",
+      "Samsung, IPhone, Tecno, Oppo, Redmi, Nokia ...",
+      "Montres élégantes et tendance: Femme, Homme, Enfants"
+    ];
+    
+    let numero = 0;
+    
+    function ChangeSlide(sens) {
+      numero = numero + sens;
+      if (numero > slideImages.length - 1)
+        numero = 0;
+      if (numero < 0)
+        numero = slideImages.length - 1;
+    
+      const staticImagePath = "{% static 'image/' %}";
+      const imageSrc = staticImagePath + slideImages[numero];
+      document.getElementById("slide").src = imageSrc;
+      document.getElementById("slide-title").textContent = slideTitles[numero];
+      document.getElementById("slide-description").textContent = slideDescriptions[numero];
+    }
+    
+    setInterval(() => ChangeSlide(1), 4000);
+    </script>
